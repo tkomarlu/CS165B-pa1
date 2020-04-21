@@ -35,9 +35,9 @@ def run_train_test(training_input, testing_input):
     #classes into their own numpy array
     training_input.remove(training_input[0])
     training = np.array(training_input)
-    A_array = training[:num_A_train, :]
-    B_array = training[1+num_A_train:num_A_train+num_B_train, :]
-    C_array = training[1+num_A_train+num_B_train:, :]
+    A_array = training[:num_A_train]
+    B_array = training[1+num_A_train:num_A_train+num_B_train]
+    C_array = training[1+num_A_train+num_B_train:]
     #Find the centroid by summing the columns and dividing by the total number of training data points in the given class
     A_centroid = A_array.sum(axis = 0)/num_A_train
     B_centroid = B_array.sum(axis = 0)/num_B_train
@@ -57,9 +57,9 @@ def run_train_test(training_input, testing_input):
     #remove the information and separate into three numpy arrays for each class
     testing_input.remove(testing_input[0])
     testing = np.array(testing_input)
-    A_test_array = testing[:num_A_test, :]
-    B_test_array = testing[num_A_test:num_A_test+num_B_test, :]
-    C_test_array = testing[num_A_test+num_B_test:, :]
+    A_test_array = testing[:num_A_test]
+    B_test_array = testing[num_A_test:num_A_test+num_B_test]
+    C_test_array = testing[num_A_test+num_B_test:]
 
     truePositiveA = 0;
     truePositiveB = 0;
