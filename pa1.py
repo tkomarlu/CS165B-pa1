@@ -39,9 +39,9 @@ def run_train_test(training_input, testing_input):
     B_array = training[1+num_A_train:num_A_train+num_B_train]
     C_array = training[1+num_A_train+num_B_train:]
     #Find the centroid by summing the columns and dividing by the total number of training data points in the given class
-    A_centroid = A_array.sum(axis = 0)/num_A_train
-    B_centroid = B_array.sum(axis = 0)/num_B_train
-    C_centroid = C_array.sum(axis = 0)/num_C_train
+    A_centroid = A_array.mean(axis=0)
+    B_centroid = B_array.mean(axis=0)
+    C_centroid = C_array.mean(axis=0)
     #Calculate the weight
     AB_w = A_centroid - B_centroid
     BC_w = B_centroid - C_centroid
